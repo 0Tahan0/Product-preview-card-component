@@ -110,6 +110,7 @@ body {
 .card .info .price .prev-price {
   font-size: 1rem;
   margin-left: 1rem;
+  text-decoration: line-through;
 }
 .card .info button {
   border: none;
