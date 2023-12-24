@@ -7,7 +7,10 @@
 }
 body {
   background-color: var(--cream);
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 :root {
   /* Primary */
@@ -19,104 +22,118 @@ body {
   --darkGrayishBlue: hsl(228, 12%, 48%);
   --white: hsl(0, 0%, 100%);
 }
+/* new */
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-flow: column;
-  height: 100vh;
+  /* Default 1.5rem */
+  padding: 0 1.5rem;
+  margin: 0 auto;
 }
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+    width: 1370px;
+  }
+}
+/* start card */
 .card {
   border-radius: 10px;
-  box-shadow: 0 0 3px 1px rgb(0 0 0 /15%);
   display: flex;
   background-color: var(--white);
-  max-width: 80%;
-  min-height: 500px;
-  justify-content: space-between;
+  margin: 2rem auto;
+  max-width: 600px;
+  overflow: hidden;
+
+  /* -0---- */
+  /* transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left:50%; */
 }
-.img-box {
-  border-radius: 10px 0 0 10px;
-  flex-grow: 1;
-  background-image: url(./images/image-product-desktop.jpg);
-  background-position: center;
-  background-size: cover;
-  /* background-attachment: fixed; */
-}
-.card .content-box {
+.card .image {
   flex-basis: 50%;
-  padding: 20px 30px;
-  font-family: Montserrat;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-  color: var(--darkGrayishBlue);
 }
-.card .content-box h4 {
+.card .image img {
+  /* object-fit: cover; */
+  width: 100%;
+
+  height: 100%;
+}
+.card .image .mobi {
+  display: none;
+}
+.card .info {
+  flex-basis: 50%;
+  padding: 1rem 2rem;
+}
+.card .info h5 {
+  letter-spacing: 4px;
   text-transform: uppercase;
-  letter-spacing: 5px;
-  font-weight: 100;
-  font-size: 0.8em;
+  color: var(--darkGrayishBlue);
+  margin: 1rem 0;
+  font-family: Montserrat;
+  font-weight: 500;
 }
-.card .content-box h2 {
-  line-height: 30px;
-  font-size: 1.5em; /*30px;*/
-  color: var(--veryDarkBlue);
+.card .info h1 {
   font-family: Fraunces;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
-.card .content-box p {
-  line-height: 23px;
-  font-size: 0.8em;
+.card .info p {
+  margin-bottom: 1rem;
+  color: var(--darkGrayishBlue);
+  font-family: Montserrat;
+  line-height: 1.6;
 }
-.card .content-box .price-box {
+.card .info .price {
   font-family: Fraunces;
+  margin-bottom: 1rem;
 }
-.card .content-box .price-box .price {
-  margin-right: 20px;
+.card .info .price .current-price {
+  font-weight: 700;
+  font-size: 2rem;
   color: var(--darkCyan);
-  font-size: 1.7em; /*30px;*/
-  font-weight: 700;
 }
-.card .content-box .price-box .discount {
-  text-decoration: line-through;
+.card .info .price .prev-price {
+  font-size: 1rem;
+  margin-left: 1rem;
 }
-.card .btn {
+.card .info button {
   border: none;
+  border-radius: 7px;
   background-color: var(--darkCyan);
-  color: #fff;
-  font-size: 1em; /*14px;*/
-  padding: 15px;
-  border-radius: 10px;
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  color: var(--white);
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s background;
 }
-.card .btn img {
-  margin: 0 10px;
-}
-.card .btn:hover {
+.card .info button:hover {
   background-color: var(--verydarkCyan);
 }
-/* ---------------------------------------- */
-/* mobile */
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .card {
-    flex-flow: column;
+    flex-direction: column;
   }
-  .card .img-box {
-    background-image: url(./images/image-product-mobile.jpg);
-    background-position: center;
-    background-size: cover;
-    flex-basis: 50%;
-    border-radius: 10px 10px 0 0;
+  .card .image .desk {
+    display: none;
   }
-  .card .content-box {
-    flex-grow: 1;
+  .card .image .mobi {
+    display: block;
   }
 }
-/* desktop */
-@media (min-width: 1400px) {
-}
+/* end card */
